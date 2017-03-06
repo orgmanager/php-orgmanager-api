@@ -34,6 +34,15 @@ class OrgManager
     {
         return $this->get('');
     }
+    
+    /**
+     *
+     * @return array
+     */
+    public function getStats()
+    {
+        return $this->get('/stats');
+    }
 
     /**
      * @param string $resource
