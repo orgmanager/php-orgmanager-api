@@ -17,7 +17,7 @@ class OrgManager
      * @param string             $apiToken
      * @param string             $rootUrl
      */
-    public function __construct(Client $client, $apiToken, $rootUrl = 'https://orgmanager.miguelpiedrafita.com')
+    public function __construct(Client $client, $apiToken = null, $rootUrl = 'https://orgmanager.miguelpiedrafita.com')
     {
         $this->client = $client;
 
@@ -26,6 +26,17 @@ class OrgManager
         $this->baseUrl = $rootUrl.'/api';
     }
 
+    /**
+     * @param string $apiToken
+     *
+     * @return string
+     */
+    public function connect($apiToken = $this->apiToken)
+    {
+        $this->apiToken = $apiToken;
+        return $this->apiToken;
+    }
+    
     /**
      *
      * @return array
