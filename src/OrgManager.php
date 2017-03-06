@@ -143,7 +143,7 @@ class OrgManager
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
         $results = $this->client
-            ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
+            ->delete("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
         return json_decode($results, true);
