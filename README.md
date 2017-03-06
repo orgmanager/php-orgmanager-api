@@ -1,5 +1,6 @@
 # PHP OrgManager API Client
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/198c105f5e434fe2806b39a17d458dc3)](https://www.codacy.com/app/m1guelpiedrafita/php-orgmanager-api?utm_source=github.com&utm_medium=referral&utm_content=orgmanager/php-orgmanager-api&utm_campaign=badger)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/orgmanager/orgmanager-api.svg?style=flat-square)](https://packagist.org/packages/orgmanager/orgmanager-api)
 [![Software License](https://img.shields.io/github/license/orgmanager/php-orgmanager-api.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/orgmanager/php-orgmanager-api/master.svg?style=flat-square)](https://travis-ci.org/orgmanager/php-orgmanager-api)
