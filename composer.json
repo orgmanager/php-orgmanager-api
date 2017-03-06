@@ -1,0 +1,39 @@
+{
+    "name": "orgmanager/orgmanager-api",
+    "description": "PHP Client for the OrgManager API",
+    "keywords": [
+        "orgmanager",
+        "orgmanager-api",
+        "m1guelpf"
+    ],
+    "homepage": "https://github.com/orgmanager/php-orgmanager-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Miguel Piedrafita",
+            "email": "soy@miguelpiedrafita.com",
+            "homepage": "https://miguelpiedrafita.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^5.5|^7.0",
+        "guzzlehttp/guzzle":"^6.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OrgManager\\ApiClient\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OrgManager\\ApiClient\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
