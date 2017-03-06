@@ -30,9 +30,9 @@ class OrgManager
      *
      * @return array
      */
-    public function getroot()
+    public function getRoot()
     {
-        return $this->makeRequest('');
+        return $this->get('');
     }
 
     /**
@@ -41,8 +41,10 @@ class OrgManager
      *
      * @return array
      */
-    public function makeRequest($resource, array $query = [])
+    public function get($resource, array $query = [])
     {
+        $query['api_token'] = $this->apiToken;
+        
         $results = $this->client
             ->get("{$this->baseUrl}{$resource}", compact('query'))
             ->getBody()
