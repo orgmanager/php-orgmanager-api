@@ -27,6 +27,18 @@ $token = 'YOUR_ORGMANAGER_API_TOKEN';
 $orgmanager = new \OrgManager\ApiClient\OrgManager($client, $token);
 ```
 
+or you can skip the token and use the `connect()` method later
+
+``` php
+$client = new \GuzzleHttp\Client();
+
+$token = 'YOUR_ORGMANAGER_API_TOKEN';
+
+$orgmanager = new \OrgManager\ApiClient\OrgManager($client);
+
+$orgmanager->connect($token);
+```
+
 ### Get User info
 ``` php
 $orgmanager->getUser();
