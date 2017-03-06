@@ -31,7 +31,7 @@ class OrgManager
      *
      * @return string
      */
-    public function connect($apiToken = $this->apiToken)
+    public function connect($apiToken)
     {
         $this->apiToken = $apiToken;
         return $this->apiToken;
