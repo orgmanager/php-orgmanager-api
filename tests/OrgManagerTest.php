@@ -24,7 +24,7 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertNull($this->orgmanager->apiToken);
     }
-    
+
     /** @test */
     public function you_can_set_api_token()
     {

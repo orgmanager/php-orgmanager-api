@@ -34,11 +34,11 @@ class OrgManager
     public function connect($apiToken)
     {
         $this->apiToken = $apiToken;
+
         return $this->apiToken;
     }
-    
+
     /**
-     *
      * @return array
      */
     public function getRoot()
@@ -47,7 +47,6 @@ class OrgManager
     }
 
     /**
-     *
      * @return array
      */
     public function getStats()
@@ -56,7 +55,6 @@ class OrgManager
     }
 
     /**
-     *
      * @return array
      */
     public function getUser()
@@ -70,7 +68,6 @@ class OrgManager
     }
 
     /**
-     *
      * @return array
      */
     public function getOrgs()
@@ -154,7 +151,6 @@ class OrgManager
      *
      * @return array
      */
-
     protected function post($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
@@ -163,6 +159,7 @@ class OrgManager
             ->post("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
+
         return json_decode($results, true);
     }
 
@@ -172,7 +169,6 @@ class OrgManager
      *
      * @return array
      */
-
     protected function put($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
@@ -181,6 +177,7 @@ class OrgManager
             ->request('PUT', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
+
         return json_decode($results, true);
     }
 
@@ -190,7 +187,6 @@ class OrgManager
      *
      * @return array
      */
-
     public function delete($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
@@ -199,6 +195,7 @@ class OrgManager
             ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
+
         return json_decode($results, true);
     }
 }
