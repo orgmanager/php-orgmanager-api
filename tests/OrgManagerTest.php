@@ -14,17 +14,21 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client();
 
-        $this->orgmanager = new OrgManager($client, 'token');
+        $this->orgmanager = new OrgManager($client);
 
         parent::setUp();
     }
 
     /** @test */
-    public function it_can_get_root_endpoint()
+    public function it_does_not_have_token()
     {
-
-        $result = $this->orgmanager->getRoot();
-
-        $this->assertArrayHasKey('docs', $result);
+        $this->assertNull($this->orgmanager->apiToken);
+    }
+    
+    /** @test */
+    public function you_can_set_api_token()
+    {
+        $this->orgmanager->connect('API_TOKEN');
+        $this->assertEquals('API_TOKEN', $this->orgmanager->apiToken);
     }
 }
