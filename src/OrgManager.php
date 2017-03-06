@@ -20,9 +20,9 @@ class OrgManager
     public function __construct(Client $client, $apiToken, $rootUrl = 'https://orgmanager.miguelpiedrafita.com')
     {
         $this->client = $client;
-        
+
         $this->apiToken = $apiToken;
-        
+
         $this->baseUrl = $rootUrl.'/api';
     }
 
@@ -34,7 +34,7 @@ class OrgManager
     {
         return $this->get('');
     }
-    
+
     /**
      *
      * @return array
@@ -43,7 +43,7 @@ class OrgManager
     {
         return $this->get('/stats');
     }
-    
+
     /**
      *
      * @return array
@@ -52,7 +52,12 @@ class OrgManager
     {
         return $this->get('/user');
     }
-    
+
+    public function test()
+    {
+        return 'test';
+    }
+
     /**
      *
      * @return array
@@ -61,7 +66,7 @@ class OrgManager
     {
         return $this->get('/user/orgs');
     }
-    
+
     /**
      * @param string $id
      *
@@ -69,7 +74,7 @@ class OrgManager
      */
     public function getOrg($id)
     {
-        return $this->get('/org/'$id);
+        return $this->get('/org/'.$id);
     }
 
     /**
@@ -89,56 +94,56 @@ class OrgManager
 
         return json_decode($results, true);
     }
-    
+
     /**
      * @param string $resource
      * @param array  $rawdata
      *
      * @return array
      */
-    
+
     protected function post($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
         $results = $this->client
-            ->request('POST', "{$this->baseUrl}{$resource}", $data])
+            ->post("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
         return json_decode($results, true);
     }
-    
+
     /**
      * @param string $resource
      * @param array  $rawdata
      *
      * @return array
      */
-    
+
     protected function put($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
         $results = $this->client
-            ->request('PUT', "{$this->baseUrl}{$resource}", $data])
+            ->request('PUT', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
         return json_decode($results, true);
     }
-    
+
     /**
      * @param string $resource
      * @param array  $rawdata
      *
      * @return array
      */
-    
+
     public function delete($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
         $results = $this->client
-            ->request('DELETE', "{$this->baseUrl}{$resource}", $data])
+            ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
         return json_decode($results, true);
