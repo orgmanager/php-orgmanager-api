@@ -1,7 +1,8 @@
 # PHP OrgManager API Client
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/orgmanager/orgmanager-api.svg?style=flat-square)](https://packagist.org/packages/orgmanager/orgmanager-api)
-[![Software License](https://img.shields.io/github/license/orgmanager/php-orgmanager-api.svg?style=flat-square)](LICENSE.md)[![Build Status](https://img.shields.io/travis/orgmanager/orgmanager-api/master.svg?style=flat-square)](https://travis-ci.org/orgmanager/orgmanager-api)
+[![Software License](https://img.shields.io/github/license/orgmanager/php-orgmanager-api.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/orgmanager/php-orgmanager-api/master.svg?style=flat-square)](https://travis-ci.org/orgmanager/php-orgmanager-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/orgmanager/orgmanager-api.svg?style=flat-square)](https://packagist.org/packages/orgmanager/orgmanager-api)
 
 This package makes it easy to interact with [the OrgManager API](https://github.com/orgmanager/orgmanager#api).
