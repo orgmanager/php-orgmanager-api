@@ -78,7 +78,7 @@ class OrgManager
      *
      * @return array
      */
-    public function get($resource, array $query = [])
+    protected function get($resource, array $query = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['query'] = $query;
@@ -97,12 +97,48 @@ class OrgManager
      * @return array
      */
     
-    public function post($resource, array $rawdata = [])
+    protected function post($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
         $results = $this->client
             ->request('POST', "{$this->baseUrl}{$resource}", $data])
+            ->getBody()
+            ->getContents();
+        return json_decode($results, true);
+    }
+    
+    /**
+     * @param string $resource
+     * @param array  $rawdata
+     *
+     * @return array
+     */
+    
+    protected function put($resource, array $rawdata = [])
+    {
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['json'] = $rawdata;
+        $results = $this->client
+            ->request('PUT', "{$this->baseUrl}{$resource}", $data])
+            ->getBody()
+            ->getContents();
+        return json_decode($results, true);
+    }
+    
+    /**
+     * @param string $resource
+     * @param array  $rawdata
+     *
+     * @return array
+     */
+    
+    public function delete($resource, array $rawdata = [])
+    {
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['json'] = $rawdata;
+        $results = $this->client
+            ->request('DELETE', "{$this->baseUrl}{$resource}", $data])
             ->getBody()
             ->getContents();
         return json_decode($results, true);
