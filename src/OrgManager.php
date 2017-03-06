@@ -89,6 +89,37 @@ class OrgManager
     }
 
     /**
+     * @param string $id
+     *
+     * @return null
+     */
+    public function updateOrg($id)
+    {
+        return $this->put('/org/'.$id);
+    }
+
+    /**
+     * @param string $id
+     *
+     * @return null
+     */
+    public function deleteOrg($id)
+    {
+        return $this->delete('/org/'.$id);
+    }
+
+    /**
+     * @param string $id
+     * @param string $username
+     *
+     * @return null
+     */
+    public function joinOrg($id, $username)
+    {
+        return $this->post('/join/'.$id, ['username' => $username]);
+    }
+
+    /**
      * @param string $resource
      * @param array  $query
      *
