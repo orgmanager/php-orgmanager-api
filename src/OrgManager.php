@@ -78,6 +78,17 @@ class OrgManager
     }
 
     /**
+     * @param string $id
+     * @param string $password
+     *
+     * @return array
+     */
+    public function changeOrgPassword($id, $password)
+    {
+        return $this->post('/org/'.$id, ['password' => $password]);
+    }
+
+    /**
      * @param string $resource
      * @param array  $query
      *
@@ -143,7 +154,7 @@ class OrgManager
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
         $results = $this->client
-            ->delete("{$this->baseUrl}{$resource}", $data)
+            ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
         return json_decode($results, true);
