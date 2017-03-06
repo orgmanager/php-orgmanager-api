@@ -89,4 +89,22 @@ class OrgManager
 
         return json_decode($results, true);
     }
+    
+    /**
+     * @param string $resource
+     * @param array  $rawdata
+     *
+     * @return array
+     */
+    
+    public function post($resource, array $rawdata)
+    {
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['json'] = $rawdata;
+        $results = $this->client
+            ->request('POST', "{$this->baseUrl}{$resource}", $data])
+            ->getBody()
+            ->getContents();
+        return json_decode($results, true);
+    }
 }
