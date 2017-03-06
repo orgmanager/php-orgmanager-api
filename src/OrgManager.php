@@ -61,6 +61,16 @@ class OrgManager
     {
         return $this->get('/user/orgs');
     }
+    
+    /**
+     * @param string $id
+     *
+     * @return array
+     */
+    public function getOrg($id)
+    {
+        return $this->get('/org/'$id);
+    }
 
     /**
      * @param string $resource
