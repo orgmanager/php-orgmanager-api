@@ -80,10 +80,10 @@ class OrgManager
      */
     public function get($resource, array $query = [])
     {
-        $query['api_token'] = $this->apiToken;
-        
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['query'] = $query;
         $results = $this->client
-            ->get("{$this->baseUrl}{$resource}", compact('query'))
+            ->get("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
 
@@ -97,7 +97,7 @@ class OrgManager
      * @return array
      */
     
-    public function post($resource, array $rawdata)
+    public function post($resource, array $rawdata = [])
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
