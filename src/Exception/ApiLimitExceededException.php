@@ -7,7 +7,7 @@ namespace OrgManager\ApiClient\Exception;
  *
  * @author Miguel Piedrafita <soy@miguelpiedrafita.com>
  */
-class ApiLimitExceedException extends RuntimeException
+class ApiLimitExceededException extends RuntimeException
 {
     private $limit;
 
