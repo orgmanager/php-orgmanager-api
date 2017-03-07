@@ -15,7 +15,7 @@ class ApiLimitExceedException extends RuntimeException
     {
         $this->limit = (int) $limit;
 
-        parent::__construct('You have reached OrgManager request limit! You will be able to continue making requests in a minute'), $code, $previous);
+        parent::__construct('You have reached OrgManager request limit! You will be able to continue making requests in a minute', $code, $previous);
     }
 
     public function getLimit()
