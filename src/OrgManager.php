@@ -3,6 +3,8 @@
 namespace OrgManager\ApiClient;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\Exception\ClientException;
 
 class OrgManager
 {
