@@ -139,17 +139,10 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['query'] = $query;
-        try {
             $results = $this->client
             ->get("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
-        } catch (ClientException $e) {
-            //
-        } catch (ServerException $e) {
-            //
-        }
-
         return json_decode($results, true);
     }
 
@@ -163,17 +156,10 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
-        try {
             $results = $this->client
             ->post("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
-        } catch (ClientException $e) {
-            //
-        } catch (ServerException $e) {
-            //
-        }
-
         return json_decode($results, true);
     }
 
@@ -187,17 +173,10 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
-        try {
             $results = $this->client
             ->request('PUT', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
-        } catch (ClientException $e) {
-            //
-        } catch (ServerException $e) {
-            //
-        }
-
         return json_decode($results, true);
     }
 
@@ -211,16 +190,10 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
-        try {
             $results = $this->client
             ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
-        } catch (ClientException $e) {
-            //
-        } catch (ServerException $e) {
-            //
-        }
 
         return json_decode($results, true);
     }
