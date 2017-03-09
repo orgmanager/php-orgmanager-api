@@ -3,8 +3,6 @@
 namespace OrgManager\ApiClient;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 
 class OrgManager
 {
@@ -139,10 +137,11 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['query'] = $query;
-            $results = $this->client
+        $results = $this->client
             ->get("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
+
         return json_decode($results, true);
     }
 
@@ -156,10 +155,11 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
-            $results = $this->client
+        $results = $this->client
             ->post("{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
+
         return json_decode($results, true);
     }
 
@@ -173,10 +173,11 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
-            $results = $this->client
+        $results = $this->client
             ->request('PUT', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
+
         return json_decode($results, true);
     }
 
@@ -190,7 +191,7 @@ class OrgManager
     {
         $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
         $data['json'] = $rawdata;
-            $results = $this->client
+        $results = $this->client
             ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
             ->getBody()
             ->getContents();
