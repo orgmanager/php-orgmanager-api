@@ -135,7 +135,7 @@ class OrgManager
      */
     protected function get($resource, array $query = [])
     {
-        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken, 'User-Agent' => 'php-orgmanager-api'];
         $data['query'] = $query;
         $results = $this->client
             ->get("{$this->baseUrl}{$resource}", $data)
@@ -153,7 +153,7 @@ class OrgManager
      */
     protected function post($resource, array $rawdata = [])
     {
-        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken, 'User-Agent' => 'php-orgmanager-api'];
         $data['json'] = $rawdata;
         $results = $this->client
             ->post("{$this->baseUrl}{$resource}", $data)
@@ -171,7 +171,7 @@ class OrgManager
      */
     protected function put($resource, array $rawdata = [])
     {
-        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken, 'User-Agent' => 'php-orgmanager-api'];
         $data['json'] = $rawdata;
         $results = $this->client
             ->request('PUT', "{$this->baseUrl}{$resource}", $data)
@@ -189,7 +189,7 @@ class OrgManager
      */
     public function delete($resource, array $rawdata = [])
     {
-        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken];
+        $data['headers'] = ['Authorization' => 'Bearer '.$this->apiToken, 'User-Agent' => 'php-orgmanager-api'];
         $data['json'] = $rawdata;
         $results = $this->client
             ->request('DELETE', "{$this->baseUrl}{$resource}", $data)
