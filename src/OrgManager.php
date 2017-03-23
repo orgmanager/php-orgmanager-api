@@ -126,6 +126,21 @@ class OrgManager
     {
         return $this->post('/join/'.$id, ['username' => $username]);
     }
+    
+     /**
+     * @param bool $set
+     *
+     * @return string
+     */
+    public function regenerateToken($set = true)
+    {
+        if ($set)
+        {
+           return $this->connect($this->get('/token/regenerate'));
+        }
+        
+        return $this->get('/token/regenerate');
+    }
 
     /**
      * @param string $resource
