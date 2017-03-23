@@ -75,6 +75,13 @@ $orgmanager->deleteOrg('ORG_ID');
 $orgmanager->getStats();
 ```
 
+### Renenerate Token
+
+``` php
+$orgmanager->regenerateToken($set);
+```
+where `$set` is false if you don't want to use the new token on future requests.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
