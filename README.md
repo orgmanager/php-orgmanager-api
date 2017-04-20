@@ -21,23 +21,15 @@ composer require orgmanager/orgmanager-api
 You must pass a Guzzle client and the API token to the constructor of `OrgManager\ApiClient\OrgManager`.
 
 ``` php
-$client = new \GuzzleHttp\Client();
-
-$token = 'YOUR_ORGMANAGER_API_TOKEN';
-
-$orgmanager = new \OrgManager\ApiClient\OrgManager($client, $token);
+$orgmanager = new \OrgManager\ApiClient\OrgManager('YOUR_ORGMANAGER_API_TOKEN');
 ```
 
 or you can skip the token and use the `connect()` method later
 
 ``` php
-$client = new \GuzzleHttp\Client();
+$orgmanager = new \OrgManager\ApiClient\OrgManager();
 
-$token = 'YOUR_ORGMANAGER_API_TOKEN';
-
-$orgmanager = new \OrgManager\ApiClient\OrgManager($client);
-
-$orgmanager->connect($token);
+$orgmanager->connect('YOUR_ORGMANAGER_API_TOKEN');
 ```
 
 ### Get User info
@@ -81,6 +73,20 @@ $orgmanager->getStats();
 $orgmanager->regenerateToken($set);
 ```
 where `$set` is false if you don't want to use the new token on future requests.
+
+### Get the Guzzle Client
+
+``` php
+$orgmanager->getClient();
+```
+
+### Set the Guzzle Client
+
+``` php
+$client = new \GuzzleHttp\Client(); // Example Guzzle client
+$orgmanager->setClient($client);
+```
+where $client is an instance of `\GuzzleHttp\Client`.
 
 ## Changelog
 
