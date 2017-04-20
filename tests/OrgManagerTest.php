@@ -39,7 +39,7 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function you_can_set_client()
     {
-        $newClient = new Client(['base_uri' => 'http://foo.bar',]);
+        $newClient = new Client(['base_uri' => 'http://foo.bar']);
         $this->assertInstanceOf(Client::class, $newClient);
         $this->assertNotEquals($this->orgmanager->getClient(), $newClient);
         $this->orgmanager->setClient($newClient);
