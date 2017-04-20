@@ -43,6 +43,6 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Client::class, $newClient);
         $this->assertNotEquals($this->orgmanager->getClient(), $newClient);
         $this->orgmanager->setClient($newClient);
-        $this->assertEquals($newClient, $this->orgmanager->client);
+        $this->assertEquals($newClient, $this->orgmanager->getClient());
     }
 }
