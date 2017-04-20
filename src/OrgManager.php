@@ -51,7 +51,7 @@ class OrgManager
      *
      * @return void
      */
-    public function setClient($client = new Client)
+    public function setClient($client)
     {
         if ($client instanceof Client))
         {
