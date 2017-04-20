@@ -17,9 +17,9 @@ class OrgManager
      * @param string             $apiToken
      * @param string             $rootUrl
      */
-    public function __construct(Client $client, $apiToken = null, $rootUrl = 'https://orgmanager.miguelpiedrafita.com')
+    public function __construct($apiToken = null, $rootUrl = 'https://orgmanager.miguelpiedrafita.com')
     {
-        $this->client = $client;
+        $this->client = new Client;
 
         $this->apiToken = $apiToken;
 
@@ -36,6 +36,28 @@ class OrgManager
         $this->apiToken = $apiToken;
 
         return $this->apiToken;
+    }
+    
+    /**
+     * @return \GuzzleHttp\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+    
+    /**
+     * @param \GuzzleHttp\Client $client
+     *
+     * @return void
+     */
+    public function setClient($client = new Client;)
+    {
+        if ($client instanceof Client))
+        {
+            $this->client = $client;
+        }
+        return $this;
     }
 
     /**
