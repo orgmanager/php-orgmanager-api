@@ -53,7 +53,7 @@ class OrgManager
      */
     public function setClient($client)
     {
-        if ($client instanceof Client))
+        if ($client instanceof Client)
         {
             $this->client = $client;
         }
