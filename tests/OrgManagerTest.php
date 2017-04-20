@@ -12,9 +12,7 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $client = new Client();
-
-        $this->orgmanager = new OrgManager($client);
+        $this->orgmanager = new OrgManager();
 
         parent::setUp();
     }
@@ -30,5 +28,22 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
     {
         $this->orgmanager->connect('API_TOKEN');
         $this->assertEquals('API_TOKEN', $this->orgmanager->apiToken);
+    }
+    
+    /** @test */
+    public function you_can_get_client()
+    {
+        $this->assertEquals($this->orgmanager->getClient(), $this->orgmanager->client);
+        $this->assertInstanceOf(Client::class, $this->orgmanager->getClient());
+    }
+    
+    /** @test */
+    public function you_can_set_client()
+    {
+        $newClient = new Client;
+        $this->assertInstanceOf(Client::class, $newClient);
+        $this->assertNotEquals($this->orgmanager->client, $newClient)
+        $this->orgmanager->setClient($newClient);
+        $this->assertEquals($newClient, $this->orgmanager->client);
     }
 }
