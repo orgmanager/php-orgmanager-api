@@ -33,7 +33,6 @@ class OrgManagerTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function you_can_get_client()
     {
-        $this->assertEquals($this->orgmanager->getClient(), $this->orgmanager->client);
         $this->assertInstanceOf(Client::class, $this->orgmanager->getClient());
     }
 
