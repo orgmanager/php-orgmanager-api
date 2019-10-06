@@ -4,13 +4,14 @@ namespace OrgManager\ApiClient\Test;
 
 use GuzzleHttp\Client;
 use OrgManager\ApiClient\OrgManager;
+use PHPUnit\Framework\TestCase;
 
-class OrgManagerTest extends \PHPUnit_Framework_TestCase
+class OrgManagerTest extends TestCase
 {
     /** @var \OrgManager\ApiClient\OrgManager */
     protected $orgmanager;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->orgmanager = new OrgManager();
 
